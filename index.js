@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { booksRouter } = require("./routes/books");
+const { userRouter } = require("./routes/users");
 
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(express.json());
 const PORT = 3000;
 const API_URL = "api";
 const MONGO_URI =
-    "mongodb+srv://itscoolvatsa:mongodbpassword@cluster0.cikjf.mongodb.net/webstore-1?retryWrites=true&w=majority";
+    "mongodb+srv://itscoolvatsa:mongodbpassword@cluster0.cikjf.mongodb.net/bookstore?retryWrites=true&w=majority";
 
 // database connection
 mongoose
@@ -25,6 +26,7 @@ mongoose
 
 // routes
 app.use(`/${API_URL}/books`, booksRouter);
+app.use(`/${API_URL}/users`, userRouter);
 
 // server setup
 app.listen(PORT, () => {
