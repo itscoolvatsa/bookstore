@@ -9,7 +9,6 @@ const currentUser = async (req, res, next) => {
     try {
         const { userId } = jwt.verify(token, "jwt-secret");
         const user = await User.findById(userId);
-        console.log(user);
         if (user) {
             next();
         }

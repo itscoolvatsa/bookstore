@@ -15,6 +15,7 @@ router.get("/", currentUser, async (req, res) => {
 // GET a book by ID
 router.get("/:id", currentUser, async (req, res) => {
     const id = req.params.id;
+    console.log("id", id);
 
     const book = await Book.findById(id).catch((err) => {
         console.log("Invalid ID");

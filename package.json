@@ -1,18 +1,30 @@
 {
-  "name": "restapi",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.2",
-    "nodemon": "^2.0.15"
-  },
-  "description": ""
+    "name": "restapi",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "test": "jest --watchAll --no-cache"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "setupFilesAfterEnv": [
+            "./test/setup.js"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.1.2",
+        "nodemon": "^2.0.15"
+    },
+    "description": "",
+    "devDependencies": {
+        "jest": "^27.4.5",
+        "mongodb-memory-server": "^8.0.4",
+        "supertest": "^6.1.6"
+    }
 }

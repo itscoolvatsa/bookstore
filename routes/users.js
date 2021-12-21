@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
         res.status(201).send(user);
     } catch (err) {
         console.log(err.message);
-        res.status(201).json("user not created");
+        res.status(400).json("user not created");
     }
 });
 
@@ -66,6 +66,8 @@ router.post("/login", async (req, res) => {
                 expiresIn: "1d",
             }
         );
+
+        res.setHeader("authorization", `Bearer ${token}`);
 
         res.status(200).send(token);
     } else {
